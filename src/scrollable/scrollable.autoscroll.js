@@ -43,7 +43,10 @@
       *   Function to run autoscroll through event binding rather than setInterval
       *   Fixes this bug: http://flowplayer.org/tools/forum/25/72029
       */
-      function scroll(){        
+      function scroll(){
+      	if (timer) {
+      	  clearTimeout(timer);
+      	}
         timer = setTimeout(function(){
           api.next();
         }, opts.interval);
